@@ -11,7 +11,7 @@ export default function Auth() {
         {/* left hand navigation */}
         <Flex justifyContent="center" alignItems="center" gap={10}>
           <Box display={{ base: 'none', md: 'block' }}>
-            <Image src="/images/auth.png" alt="Auth" height={650} width={400} />
+            <Image src="/images/auth.png" alt="instagram" height={650} width={400} priority />
           </Box>
           {/* right hand side */}
           <VStack spacing={4} align="stretch">
