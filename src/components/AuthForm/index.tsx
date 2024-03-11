@@ -26,7 +26,7 @@ export const AuthForm = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (inputs.email && inputs.password && !isRegister) {
-      router.push('/', { scroll: false });
+      router.push('/home', { scroll: false });
     }
   };
   return (

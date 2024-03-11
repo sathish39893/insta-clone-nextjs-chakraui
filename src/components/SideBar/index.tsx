@@ -22,7 +22,7 @@ export const SideBar = () => {
     {
       icon: <AiFillHome size={25} />,
       text: 'Home',
-      link: '/',
+      link: '/home',
     },
     {
       icon: <SearchLogo />,
@@ -119,7 +119,7 @@ export const SideBar = () => {
           <Link
             display={'flex'}
             as={NextLink}
-            href={'/auth'}
+            href={'/'}
             alignItems={'center'}
             gap={4}
             borderRadius={6}
