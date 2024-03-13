@@ -1,9 +1,8 @@
 'use client';
 
-import { FeedPost } from '@/components/FeedPost';
-import { SuggestedUsers } from '@/components/SuggestedUsers';
 import { Box, Container, Flex } from '@chakra-ui/react';
 import { FeedPostContainer } from './feed-post-container';
+import { SuggestedUsersContainer } from './suggest-users-container';
 
 export default function Home() {
   return (
@@ -18,7 +17,7 @@ export default function Home() {
           display={{ base: 'none', lg: 'block' }}
           maxW={'300px'}
         >
-          <SuggestedUsers />
+          <SuggestedUsersContainer />
         </Box>
       </Flex>
     </Container>
