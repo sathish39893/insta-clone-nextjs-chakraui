@@ -21,7 +21,7 @@ export const FeedPost = ({ img, username, avatar }: FeedPostProps) => {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </Box>
-      <PostFooter username={username} />
+      <PostFooter username={username} isProfilePage={false}/>
     </>
   );
 };

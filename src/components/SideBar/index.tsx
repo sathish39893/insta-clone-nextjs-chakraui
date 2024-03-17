@@ -41,7 +41,7 @@ export const SideBar = () => {
         <Avatar size={'sm'} name="Sathish Panthagani" src="profilePic.jpg" />
       ),
       text: 'Profile',
-      link: '/myprofilelink',
+      link: '/home/sathishpanthagani',
     },
   ];
 
