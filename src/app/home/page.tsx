@@ -1,10 +1,19 @@
-'use client';
+import { redirect } from 'next/navigation';
 
+import { createClient } from '@/utils/supabase/server';
 import { Box, Container, Flex } from '@chakra-ui/react';
 import { FeedPostContainer } from './feed-post-container';
 import { SuggestedUsersContainer } from './suggest-users-container';
 
-export default function Home() {
+export default async function Home() {
+  
+  const supabase = createClient();
+  const { data, error } = await supabase.auth.getUser();
+
+  if (error || !data?.user) {
+    redirect('/');
+  }
+
   return (
     <Container maxW={'container.lg'}>
       <Flex gap={20}>

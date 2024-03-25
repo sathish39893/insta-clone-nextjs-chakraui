@@ -1,34 +1,44 @@
-'use client';
-
 import { ProfilePosts } from '@/components/Profile/ProfilePosts';
 import { ProfileHeader } from '@/components/Profile/ProfileHeader';
 import { ProfileTabs } from '@/components/Profile/ProfileTabs';
 import { Container, Flex } from '@chakra-ui/react';
+import { createClient } from '@/utils/supabase/server';
+import { NavBar } from '@/components/NavBar';
 
-export default function Profile() {
+export default async function Profile() {
+  const supabase = createClient();
+
+  const { data, error } = await supabase.auth.getUser();
+  const isLoggedIn = !(error || !data?.user);
+
   return (
-    <Container maxW={'container.lg'} py={5}>
-      <Flex
-        py={10}
-        px={4}
-        pl={{ base: 4, md: 10 }}
-        w="full"
-        mx={'auto'}
-        flexDirection={'column'}
-      >
-        <ProfileHeader />
-      </Flex>
-      <Flex
-      px={{base:2, sm: 4}}
-      maxW={'full'}
-      mx={'auto'}
-      borderTop={'1px solid'}
-      borderColor={'whiteAlpha.300'}
-      direction={'column'}
-      >
-        <ProfileTabs />
-        <ProfilePosts />
-      </Flex>
-    </Container>
+    <>
+      {!isLoggedIn && (
+        <NavBar isLoggedIn={isLoggedIn}/>
+      )}
+      <Container maxW={'container.lg'} py={5}>
+        <Flex
+          py={10}
+          px={4}
+          pl={{ base: 4, md: 10 }}
+          w="full"
+          mx={'auto'}
+          flexDirection={'column'}
+        >
+          <ProfileHeader showEdit={isLoggedIn} />
+        </Flex>
+        <Flex
+          px={{ base: 2, sm: 4 }}
+          maxW={'full'}
+          mx={'auto'}
+          borderTop={'1px solid'}
+          borderColor={'whiteAlpha.300'}
+          direction={'column'}
+        >
+          <ProfileTabs />
+          <ProfilePosts />
+        </Flex>
+      </Container>
+    </>
   );
 }

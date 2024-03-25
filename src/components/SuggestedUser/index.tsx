@@ -1,3 +1,4 @@
+'use client';
 import { Avatar, Box, Button, Flex, VStack } from '@chakra-ui/react';
 import { useState } from 'react';
 

@@ -7,7 +7,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 
-export const ProfileHeader = () => {
+export const ProfileHeader = ({ showEdit }: { showEdit: boolean }) => {
   return (
     <Flex
       gap={{ base: 4, sm: 10 }}
@@ -31,35 +31,43 @@ export const ProfileHeader = () => {
           w="full"
         >
           <Text fontSize={{ base: 'sm', md: 'lg' }}>sathishpanthagani_</Text>
-          <Flex gap={4} alignItems={'center'} justifyContent={'center'}>
-            <Button
-              bg={'white'}
-              color={'black'}
-              _hover={{ bg: 'whiteAlpha.800' }}
-              size={{ base: 'xs', md: 'sm' }}
-            >
-              Edit profile
-            </Button>
-          </Flex>
+          {showEdit && (
+            <Flex gap={4} alignItems={'center'} justifyContent={'center'}>
+              <Button
+                bg={'white'}
+                color={'black'}
+                _hover={{ bg: 'whiteAlpha.800' }}
+                size={{ base: 'xs', md: 'sm' }}
+              >
+                Edit profile
+              </Button>
+            </Flex>
+          )}
         </Flex>
         <Flex alignItems={'center'} gap={{ base: 2, sm: 4 }}>
-            <Text fontSize={{base:'xs', md: 'sm'}}>
-                <Text as={'span'} fontWeight={'bold'} mr={1}>4</Text>
-                Posts
+          <Text fontSize={{ base: 'xs', md: 'sm' }}>
+            <Text as={'span'} fontWeight={'bold'} mr={1}>
+              4
             </Text>
-            <Text fontSize={{base:'xs', md: 'sm'}}>
-                <Text as={'span'} fontWeight={'bold'} mr={1}>42787</Text>
-                Followers
+            Posts
+          </Text>
+          <Text fontSize={{ base: 'xs', md: 'sm' }}>
+            <Text as={'span'} fontWeight={'bold'} mr={1}>
+              42787
             </Text>
-            <Text fontSize={{base:'xs', md: 'sm'}}>
-                <Text as={'span'} fontWeight={'bold'} mr={1}>10</Text>
-                Following
+            Followers
+          </Text>
+          <Text fontSize={{ base: 'xs', md: 'sm' }}>
+            <Text as={'span'} fontWeight={'bold'} mr={1}>
+              10
             </Text>
+            Following
+          </Text>
         </Flex>
         <Flex alignItems={'center'} gap={4}>
-            <Text fontSize={'sm'} fontWeight={'bold'} >
-                Sathish Panthagani
-            </Text>
+          <Text fontSize={'sm'} fontWeight={'bold'}>
+            Sathish Panthagani
+          </Text>
         </Flex>
         <Text fontSize={'sm'}>Learning next js with chakraui</Text>
       </VStack>

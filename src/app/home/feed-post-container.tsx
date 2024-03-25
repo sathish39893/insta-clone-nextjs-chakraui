@@ -1,3 +1,4 @@
+'use client';
 import { FeedPost } from '@/components/FeedPost';
 import {
   Box,

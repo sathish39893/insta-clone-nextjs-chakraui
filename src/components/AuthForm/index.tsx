@@ -11,6 +11,7 @@ import {
 import { useState } from 'react';
 
 import { useRouter } from 'next/navigation';
+import { login, signup } from '@/app/actions';
 
 export const AuthForm = () => {
   const [isRegister, setIsRegister] = useState(false);
@@ -32,7 +33,7 @@ export const AuthForm = () => {
   return (
     <>
       <Box border={'1px solid gray'} borderRadius={4} padding={5}>
-        <form onSubmit={handleSubmit}>
+        <form>
           <VStack spacing={4}>
             <Image
               src="/images/logo.png"
@@ -70,6 +71,7 @@ export const AuthForm = () => {
               colorScheme="blue"
               size={'sm'}
               fontSize={14}
+              formAction={isRegister ? signup : login}
             >
               {isRegister ? 'Signup' : 'Login'}
             </Button>

@@ -1,3 +1,4 @@
+'use client'
 import { Box, Flex, Grid, Skeleton, VStack } from '@chakra-ui/react';
 import { ProfilePost } from './ProfilePost';
 import { useEffect, useState } from 'react';
